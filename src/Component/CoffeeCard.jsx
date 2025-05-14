@@ -1,6 +1,7 @@
 import React from 'react';
 import { Pencil, Trash, RefreshCw } from 'lucide-react';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router';
 const CoffeeCard = ({coffee}) => {
     const {_id,photo,name,chef}=coffee;
     const handleDelete = (_id) =>{
@@ -47,12 +48,18 @@ const CoffeeCard = ({coffee}) => {
           <p><span className="font-semibold">Price:</span> 80৳</p>
         </div>
         <div className="flex flex-col gap-2">
-          <button className="p-2 bg-beige-300 hover:bg-beige-400 rounded">
+         
+         <Link to={`/coffee/${_id}`}>
+         <button className="p-2 bg-beige-300 hover:bg-beige-400 rounded">
             <RefreshCw className="w-4 h-4 text-gray-700" />
           </button>
-          <button className="p-2 bg-gray-300 hover:bg-gray-400 rounded">
+         </Link>
+         <Link to={`/updetCoffee/${_id}`}>
+         <button className="p-2 bg-gray-300 hover:bg-gray-400 rounded">
             <Pencil className="w-4 h-4 text-black" />
           </button>
+         </Link>
+          
           <button onClick={()=>handleDelete(_id)} className="p-2 bg-red-500 hover:bg-red-600 rounded">
             <Trash className="w-4 h-4 text-white" />
           </button>
